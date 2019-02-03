@@ -25,7 +25,7 @@ public class MyArrayList {
         size++;
     }
 
-    // TODO: Runtime: O(N) ---> How to make this with O(1) time complexity?
+    // TODO: Runtime: O(1) ---> How to make this with O(1) time complexity?
     public int size() {
         return size;
     }
