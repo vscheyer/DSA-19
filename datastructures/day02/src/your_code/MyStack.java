@@ -14,14 +14,26 @@ public class MyStack implements StackADT<Integer> {
         ll = new LinkedList<>();
     }
 
+    LinkedList stackDude = new LinkedList();
+    LinkedList trackStack = new LinkedList();
+
     @Override
     public void push(Integer e) {
         ll.addFirst(e);
+        if (trackStack.peek() == null) {
+            trackStack.push(e);
+        }
+        else if (e > (int)trackStack.peek()) {
+            trackStack.addFirst(e);
+        }
     }
 
     @Override
     public Integer pop() {
         Integer pop = ll.removeFirst();
+        if (pop == trackStack.peek()) {
+            trackStack.removeFirst();
+        }
         return pop;
     }
 
@@ -36,7 +48,6 @@ public class MyStack implements StackADT<Integer> {
     }
 
     public Integer maxElement() {
-        // TODO
-        return 0;
+        return (int)trackStack.peek();
     }
 }
