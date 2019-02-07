@@ -45,32 +45,53 @@ public class Problems {
             length++;
         }
 
-        //put rest of nodes in stack
-        Node stackN = n;
-        for (int i = 0; i < length; i++) {
-            s.push(stackN.val);
-            stackN = stackN.next;
+        if (length < 2) {
+            return true;
         }
 
         if (length == 2) {
             if (n.val != n.next.val) {
                 return false;
             }
-
-
         }
 
-        //compare linked list node vals (forwards) with vals in stack (popping --> backwards list)
-        else {
-            for (int i = 0; i < length; i++) {
-                if ((int)s.peek() != n.val) {
-                    return false;
-                }
-                s.pop();
-                n = n.next;
+        if (length == 3) {
+            Node end = n.next;
+            if (n.val != end.next.val) {
+                return false;
             }
         }
 
+        else {
+        //reverse half the linked list
+        Node curr = n;
+        Node prev = null;
+        Node next = null;
+        int count = 0;
+        while (count < length/2) {
+            next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+            count++;
+        }
+
+        if (length % 2 != 0 && length > 3) {
+            next = next.next;
+        }
+
+        //compare linked list node vals (forwards) with vals in stack (popping --> backwards list)
+            for (int i = 0; i < (length-1)/2; i++) {
+                while (next != null && prev != null) {
+
+                    if (next.val != prev.val) {
+                        return false;
+                    }
+                    prev = prev.next;
+                    next = next.next;
+                }
+            }
+        }
         return true;
     }
 

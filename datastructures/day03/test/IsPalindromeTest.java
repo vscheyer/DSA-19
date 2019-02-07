@@ -27,16 +27,19 @@ public class IsPalindromeTest {
 
     @Test
     public void isPalindrome3() {
+
         assertTrue(Problems.isPalindrome(generateList(new int[]{1, 1})));
     }
 
     @Test
     public void isPalindrome4() {
+
         assertTrue(Problems.isPalindrome(generateList(new int[]{2, 1, 2})));
     }
 
     @Test
     public void isPalindrome5() {
+
         assertTrue(Problems.isPalindrome(generateList(new int[]{5, 4, 4, 5})));
     }
 
@@ -52,6 +55,6 @@ public class IsPalindromeTest {
 
     @Test
     public void isPalindrome8() {
-        assertFalse(Problems.isPalindrome(generateList(new int[]{1, 6, 4, 3, 2, 3, 4, 5, 1})));
+        assertFalse(Problems.isPalindrome(generateList(new int[]{1, 6, 4, 3, 2, 9, 4, 5, 1})));
     }
 }
