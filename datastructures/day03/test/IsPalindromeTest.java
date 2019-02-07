@@ -54,6 +54,4 @@ public class IsPalindromeTest {
     public void isPalindrome8() {
         assertFalse(Problems.isPalindrome(generateList(new int[]{1, 6, 4, 3, 2, 3, 4, 5, 1})));
     }
-
-
 }
